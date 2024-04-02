@@ -11,9 +11,10 @@ const { default: mongoose } = require('mongoose');
   app.use("/mail",mailRouter)
   require('dotenv').config()
   
-  const clientId = "520555494456-047arde7g5hlhkvgtp07jkqkr4s6crh8.apps.googleusercontent.com"
-  const clientSecret = "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"
-  const redirectUrl = "http://localhost:4500/auth/google/callback"
+  const clientId = process.env.clientId
+  const clientSecret = process.env.clientSecret
+  const redirectUrl = process.env.redirectUrl
+
   
   const scopes = ['https://www.googleapis.com/auth/blogger','https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/gmail.modify'];
   
@@ -62,7 +63,7 @@ const { default: mongoose } = require('mongoose');
     
   
   function getAuthUrl() {
-      const oauth2Client = new google.auth.OAuth2(clientId, clientSecret, redirectUrl);
+      const oauth2Client = new google.auth.OAuth2(`${clientId}`, `${clientSecret}`, `${redirectUrl}`);
       const authUrl = oauth2Client.generateAuthUrl({
         access_type: 'offline',
         scope: scopes,
@@ -195,7 +196,7 @@ const { default: mongoose } = require('mongoose');
 
 
 
-   const geminie="AIzaSyDPQIPAwfqBO4GtukRl2qL9HV2OXCYvk6o"
+   const geminie=process.env.geminie
 
  
 
@@ -232,7 +233,7 @@ const { default: mongoose } = require('mongoose');
 
 
 
-  app.listen(4500, ()=>{
+  app.listen(process.env.PORT, ()=>{
     mongoose.connect("mongodb+srv://mazhariqbal:iqbal@cluster0.hrvyke3.mongodb.net/mailserver?retryWrites=true&w=majority")
       console.log('Server running at 4500');
   })
