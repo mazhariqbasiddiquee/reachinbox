@@ -103,7 +103,7 @@ const { default: mongoose } = require('mongoose');
   
           const res = await gmail.users.messages.list({
               userId: 'me',
-              maxResults: 8
+              maxResults: 10
           });
   
           const messages = res.data.messages;
@@ -152,8 +152,8 @@ const { default: mongoose } = require('mongoose');
                       });
                          if(response){
                           const emailLines = [
-                            `From: ${sender}`,
-                            `To: ${receiver}`,
+                            `From: ${receiver}`,
+                            `To: ${sender}`,
                             'Content-type: text/html;charset=iso-8859-1',
                             'MIME-Version: 1.0',
                             'Subject: Reachinbox',
