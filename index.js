@@ -19,7 +19,7 @@ const { default: mongoose } = require('mongoose');
   const scopes = ['https://www.googleapis.com/auth/blogger','https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/gmail.modify'];
   
   app.get("/", (req, res) => {
-    res.send('<a id="anchor" href="http://localhost:4500/login">continue with google</a>');
+    res.send('<a id="anchor" href="https://reachinbox-3q2k.onrender.com/login">continue with google</a>');
 });
 
 
@@ -130,11 +130,11 @@ const { default: mongoose } = require('mongoose');
                       const bodyPart = msg.data.payload.parts?.[0];
                       const body = bodyPart ? bodyPart.body.data : undefined;
                       const decodedBody = body ? Buffer.from(body, 'base64').toString('utf-8') : '';
-                     let res=await axios.get(`http://localhost:4500/mail/${messageId}`)
+                     let res=await axios.get(`https://reachinbox-3q2k.onrender.com/mail/${messageId}`)
                       // console.log(res)
                       if(!res.data){
                         let response= await run(decodedBody);
-                        console.log(response,"**********8")
+                   
 
                         axios.post("http://localhost:4500/mail/add", {
                           mailid: messageId,
