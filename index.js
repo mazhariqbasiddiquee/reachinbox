@@ -11,9 +11,9 @@ const { default: mongoose } = require('mongoose');
   app.use("/mail",mailRouter)
   require('dotenv').config()
   
-  const clientId = process.env.clientId
-  const clientSecret = process.env.clientSecret
-  const redirectUrl = process.env.redirectUrl
+  const clientId = "520555494456-047arde7g5hlhkvgtp07jkqkr4s6crh8.apps.googleusercontent.com,"
+  const clientSecret = "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"
+  const redirectUrl = "http://localhost:4500/auth/google/callback"
 
   
   const scopes = ['https://www.googleapis.com/auth/blogger','https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/gmail.modify'];
@@ -196,7 +196,7 @@ const { default: mongoose } = require('mongoose');
 
 
 
-   const geminie=process.env.geminie
+   const geminie="AIzaSyDPQIPAwfqBO4GtukRl2qL9HV2OXCYvk6o"
 
  
 
